@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name='description' content='A simple startpage, suited to my needs.' />
+    <meta name='author' content='Milen Hristov' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>milen@firefox ~</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body onload="startTime()">
+
+    <script>
+    function startTime() {
+        var today = new Date();
+        var hr = today.getHours();
+        var min = today.getMinutes();
+        var sec = today.getSeconds();
+        // ap = (hr < 12) ? "<span>AM</span>" : "<span>PM</span>";
+        // hr = (hr == 0) ? 12 : hr;
+        // hr = (hr > 12) ? hr - 12 : hr;
+        hr = checkTime(hr);
+        min = checkTime(min);
+        sec = checkTime(sec);
+        document.getElementById("clock").innerHTML = hr + ":" + min + ":" + sec // + " " + ap;
+        
+        var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        var curWeekDay = days[today.getDay()];
+        var curDay = today.getDate();
+        var curMonth = months[today.getMonth()];
+        var curYear = today.getFullYear();
+        var date = curWeekDay+", "+curDay+" "+curMonth;
+        document.getElementById("date").innerHTML = date;
+        
+        var time = setTimeout(function(){ startTime() }, 500);
+    }
+    function checkTime(i) {
+        if (i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    }
+    </script>
+
+    <div class="clockdate">
+        <div class="clockdate-wrapper">
+          <div id="date"></div>
+          <div id="clock"></div>
+        </div>
+    </div>
+
+    <br>
+    <div class="search">
+        <form class="ddg textField" action="https://duckduckgo.com/" method="get">
+            <input class="input_box" type="text" name="q" placeholder="" type="input" />
+            <label class="form__label" for="name">🔍 Search with DuckyGo :)</label>
+        </form>
+    </div>
+    <br><br>
+    <div class="bookmarks">
+        <br><br><br><br><br><br>
+        <div class="tools">
+            <h1><span class="c1">Work - Tools</span></h1>
+            <ul>
+                <li><a href='https://www.overleaf.com/' class='button'>Overleaf</a> <a href='https://www.lcc77.org/moodle/login/index.php' class='button'>Moodle</a> <a href='https://lyceecamilleclaudelpontaultcombault.la-vie-scolaire.fr/login' class='button'>Vie Scolaire</a></li>
+                <br>
+                <li><a href='https://monlycee.net/' class='button'>Mon Lycée</a> <a href='https://cache.media.education.gouv.fr/file/SP1-MEN-22-1-2019/08/5/spe641_annexe_1063085.pdf' class='button'>BO SNT</a> <a href='https://cache.media.education.gouv.fr/file/SP1-MEN-22-1-2019/95/7/spe631_annexe_1062957.pdf' class='button'>BO Secondes</a></li>
+                <br>
+                <li><a href='https://webmel.ac-creteil.fr/iwc_static/layout/main.html?lang=en-US&3.0.1.3.0_16070513&' class='button'>Ac. Creteil</a> <a href='https://courrier.ac-bordeaux.fr/iwc_static/layout/login.html?lang=en-US&3.0.2.1.0_19070300&svcs=abs,mail,calendar,c11n' class='button'>Ac. Bordeaux</a> <a href='https://bv.ac-creteil.fr/iprof/ServletIprof?codeTraitement=CourrierE' class='button'>i.Prof</a></li>
+                <br>
+		<br>
+                <li><a href='https://adventofcode.com/2021/day/2' class='button'>AoC</a> <a href='https://github.com/' class='button'>GitHub</a> <a href='https://devdocs.io/' class='button'>DevDocs</a></li>
+                <br>
+                <li><a href='https://synonyms.reverso.net/synonym/en/truth' class='button'>Synonyms</a> <a href='https://replit.com/' class='button'>Repl It</a></li>
+                <br />
+            </ul>
+        </div>
+
+        <div class="media">
+            <h1><span class="c2"> Media & Games </span></h1>
+            <ul>
+                <li><a href='https://www.youtube.com/user/Jingles1215' class='button'>Dave</a> <a href='https://www.youtube.com/user/KennieJD' class='button'>Kennie JD</a> <a href='https://www.youtube.com/c/TheSimSupply' class='button'>James Turner</a></li>
+                <br>
+                <li><a href='https://www.youtube.com/channel/UCyNtlmLB73-7gtlBz00XOQQ' class='button'>Folding Ideas</a> <a href='https://www.youtube.com/c/Retroflux/videos' class='button'>Retroflux</a> <a href='https://www.youtube.com/c/PemTheLoathsomeCasual' class='button'>Pem</a></li>
+                <br>
+                <li><a href='https://twitter.com/MattColville' class='button'>Colville</a> <a href='https://hermitcraft.com/' class='button'>Hermitcraft</a> <a href='https://www.twitch.tv/directory/all/tags/0739209c-9ef5-4ae0-997c-ccbeb864ca61' class='button'>#DUSK</a></li>
+                <br>
+		<br>
+                <li><a href='https://www.pinterest.fr/' class='button'>Pinterest</a> <a href='https://moviesjoy.to/tv-show' class='button'>Movies</a> <a href='https://www.ravelry.com/' class='button'>Ravelry</a></li>
+                <br>
+                <li><a href='https://libgen.rocks/' class='button'>LibGen Books</a> <a href='https://annas-archive.org/' class='button'>Anna's Archive</a></li>
+            </ul>
+            <br />
+        </div>
+
+        <div class="social">
+            <h1><span class="c3"> Social </span></h1>
+            <ul>
+                <li><a href='https://mail.google.com/mail/u/0/#inbox' class='button'>Mail</a> <a href='https://www.tumblr.com/dashboard' class='button'>Tumblr</a> <a href='https://discord.com/channels/@me' class='button'>Discord</a></li>
+                <br>
+                <li><a href='https://www.reddit.com/r/worldnews' class='button'>News</a> <a href='https://twitter.com/' class='button'>Twitter</a> <a href='https://www.reddit.com/r/Fauxmoi/' class='button'>Faux Me</a></li>
+                <br>
+                <li><a href='https://mynoise.net/index.php' class='button'>My Noise</a> <a href='https://monkeytype.com/' class='button'>Monkeytype</a> <a href='https://www.twitch.tv/sorcererdave' class='button'>Twitch</a></li>
+                <br>
+		<br>
+                <li><a href='https://app.roll20.net/lfg/search/' class='button'>Roll20</a> <a href='https://tvtropes.org/pmwiki/pmwiki.php/Main/WikiTropes' class='button'>WikiTropes</a> <a href='https://archiveofourown.org/works/40210590/chapters/107651268#workskin' class='button'>AO3</a></li>
+		<br>
+		<li> <a href='https://archiveofourown.org/users/ThePoetTree' class='button'>The Poet Tree</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
